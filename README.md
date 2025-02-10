@@ -7,7 +7,7 @@ Arsenal is a modern and professional ecommerce platform designed for sports enth
 [Arsenal Live Site](https://arsenal-auth-53462.web.app)
 
 ## Screenshot
-![Arsenal Screenshot](https://i.ibb.co.com/gLkNCrdy/Screenshot-2025-02-11-013233.png)
+![Arsenal Screenshot](https://i.ibb.co.com/yFYssyhL/Screenshot-2025-02-11-013233.png)
 
 ## Technologies Used
 - HTML5, CSS3, JavaScript

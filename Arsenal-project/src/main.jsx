@@ -31,27 +31,27 @@ const router = createBrowserRouter([
           {
             path:"",
             element:<Allcards></Allcards>,
-            loader:()=>fetch('https://b10-a10-server-two.vercel.app/equipement'),
+            loader:()=>fetch('http://localhost:3000/equipement'),
           },
           {
             path:"/Cricket",
             element:<Allcards></Allcards>,
-            loader:()=>fetch('https://b10-a10-server-two.vercel.app/equipement/category/Cricket'),
+            loader:()=>fetch('http://localhost:3000/equipement/category/Cricket'),
           },
           {
             path:"/Golf",
             element:<Allcards></Allcards>,
-            loader:()=>fetch('https://b10-a10-server-two.vercel.app/equipement/category/Golf'),
+            loader:()=>fetch('http://localhost:3000/equipement/category/Golf'),
           },
           {
             path:"/football",
             element:<Allcards></Allcards>,
-            loader:()=>fetch('https://b10-a10-server-two.vercel.app/equipement/category/football'),
+            loader:()=>fetch('http://localhost:3000/equipement/category/football'),
           },
           {
             path:"/basketball",
             element:<Allcards></Allcards>,
-            loader:()=>fetch('https://b10-a10-server-two.vercel.app/equipement/category/basketball'),
+            loader:()=>fetch('http://localhost:3000/equipement/category/basketball'),
           },
         ]
       },
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       {
         path:"/allEquipe",
         element: <AllEquip></AllEquip>,
-        loader:()=>fetch('https://b10-a10-server-two.vercel.app/allequipement'),
+        loader:()=>fetch('http://localhost:3000/allequipement'),
       },
       {
         path:"/addEquipe",
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
         element: <Private_Route>
           <MyEquipe></MyEquipe>
         </Private_Route>,
-        loader:({params})=>fetch(`https://b10-a10-server-two.vercel.app/equipement/email/${params.email}`),
+        loader:({params})=>fetch(`http://localhost:3000/equipement/email/${params.email}`),
       },
       {
         path:`/updateEquipement/:id`,

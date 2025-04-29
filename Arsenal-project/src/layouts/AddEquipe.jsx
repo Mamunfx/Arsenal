@@ -34,7 +34,7 @@ const AddEquipe = () => {
         };
 
 
-        fetch('https://b10-a10-server-two.vercel.app/equipement', {
+        fetch('http://localhost:3000/equipement', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

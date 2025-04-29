@@ -1,13 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { Outlet } from 'react-router-dom';
-import { AuthContext } from './AuthProvider/AuthProvider';
 
 const Root = () => {
-    const {user}=useContext(AuthContext);
-
-   ;
     
     return (
       <div className="space-y-8  dark:bg-gray-900 dark:text-white ">

@@ -34,7 +34,7 @@ const UpdateEquipement = () => {
       userName
     };
 
-    fetch(`https://b10-a10-server-two.vercel.app/equipement/${id}`, { // Use 'id' correctly here
+    fetch(`http://localhost:3000/equipement/${id}`, { // Use 'id' correctly here
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

@@ -68,7 +68,7 @@ const Login = () => {
                   required
                 />
                 <label className="label">
-                  <Link to="/signup">
+                  <Link to="/singup">
                     Don't have an account?
                     <span className="text-blue-600 font-semibold"> Sign up</span>
                   </Link>

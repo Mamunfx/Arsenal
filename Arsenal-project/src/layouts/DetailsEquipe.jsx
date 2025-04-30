@@ -37,7 +37,7 @@ const DetailsEquipe = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-14 ">
       <div className="flex flex-col lg:flex-row gap-4 p-4 ">
-        <div className=" p-2 border border-2 pb-8">
+        <div className=" p-2  border-2 pb-8">
           <h2 className="text-2xl font-semibold mb-4">Why Choose Us?</h2>
           <p>
           We are dedicated to delivering top-tier sports equipment tailored to meet your unique athletic needs. Our team of experienced professionals ensures that you receive the best support for your sporting endeavors. Whether it's advanced gear for training, specialized equipment for competitions, or expert advice on product selection, we are here to help you achieve peak performance with confidence. Explore our extensive range of high-quality sports gear and find the perfect fit for your athletic goals.

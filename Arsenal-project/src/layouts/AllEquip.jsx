@@ -9,7 +9,6 @@ const AllEquip = () => {
   const [equipes, setequipe] = useState(loaderInfo);
   
   const handleDelete = (equi) => {
-   
     if (equi.userEmail === user?.email) {
       fetch(`http://localhost:3000/equipement/${equi._id}`, {
         method: "DELETE",
@@ -61,7 +60,7 @@ const AllEquip = () => {
               </tr>
             </thead>
             <tbody>
-              {equipes.map((equipe, idx) => (
+              {equipes?.map((equipe, idx) => (
                 <tr key={idx}>
                   <th>{idx + 1}</th>
                   <td>{equipe.itemName}</td>

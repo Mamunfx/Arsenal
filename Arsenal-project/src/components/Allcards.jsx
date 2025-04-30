@@ -6,7 +6,7 @@ const Allcards = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  mx-auto mt-12">
-        {loaderData.map((card) => (
+        {loaderData?.map((card) => (
           <div className="card bg-base-100  shadow-xl">
             <figure>
               <img

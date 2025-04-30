@@ -96,6 +96,29 @@ import { auth } from './../firebase.init';
 
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        if(currentUser?.email){
+          const user ={email:currentUser.email}
+          fetch('http://localhost:3000/JWT',{
+            method: 'POST',
+            headers:{
+              'content-type': 'application/json'
+            },
+            body :JSON.stringify(user),
+            credentials: 'include',
+          }
+        ).then(res => res.json())
+        .then(data => console.log('login token', data));
+        }
+        else{
+          fetch('http://localhost:3000/logout',{
+            method: 'POST',
+            headers:{
+              'content-type': 'application/json'
+            },
+            credentials: 'include',
+          }).then(res => res.json())
+          .then(data=>console.log("Logout : ",data))
+        }
         setUser(currentUser);
         setLoading(false);
       });

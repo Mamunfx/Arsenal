@@ -18,113 +18,90 @@ import UpdateProfile from './layouts/UpdateProfile';
 import UpdateEquipement from './layouts/UpdateEquipement';
 import DetailsEquipe from './layouts/DetailsEquipe';
 import Allcards from './components/Allcards';
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    children: [
+    children:[
       {
-        path: "/",
+        path:"/",
         element: <Home></Home>,
-        children: [
+        children:[
           {
-            path: "",
-            element: <Allcards></Allcards>,
-            loader: () => fetch("http://localhost:3000/equipement"),
+            path:"",
+            element:<Allcards></Allcards>,
+            loader:()=>fetch('http://localhost:3000/equipement'),
           },
           {
-            path: "/Cricket",
-            element: <Allcards></Allcards>,
-            loader: () =>
-              fetch("http://localhost:3000/equipement/category/Cricket"),
+            path:"/Cricket",
+            element:<Allcards></Allcards>,
+            loader:()=>fetch('http://localhost:3000/equipement/category/Cricket'),
           },
           {
-            path: "/Golf",
-            element: <Allcards></Allcards>,
-            loader: () =>
-              fetch("http://localhost:3000/equipement/category/Golf"),
+            path:"/Golf",
+            element:<Allcards></Allcards>,
+            loader:()=>fetch('http://localhost:3000/equipement/category/Golf'),
           },
           {
-            path: "/football",
-            element: <Allcards></Allcards>,
-            loader: () =>
-              fetch("http://localhost:3000/equipement/category/football"),
+            path:"/football",
+            element:<Allcards></Allcards>,
+            loader:()=>fetch('http://localhost:3000/equipement/category/football'),
           },
           {
-            path: "/basketball",
-            element: <Allcards></Allcards>,
-            loader: () =>
-              fetch("http://localhost:3000/equipement/category/basketball"),
+            path:"/basketball",
+            element:<Allcards></Allcards>,
+            loader:()=>fetch('http://localhost:3000/equipement/category/basketball'),
           },
-        ],
+        ]
       },
       {
-        path: "/singup",
+        path:"/singup",
         element: <Singup></Singup>,
       },
       {
-        path: "/login",
+        path:"/login",
         element: <Login></Login>,
       },
       {
-        path: "/allEquipe",
+        path:"/allEquipe",
         element: <AllEquip></AllEquip>,
-        loader: () => fetch("http://localhost:3000/allequipement"),
       },
       {
-        path: "/addEquipe",
-        element: (
-          <Private_Route>
-            <AddEquipe></AddEquipe>,
-          </Private_Route>
-        ),
+        path:"/addEquipe",
+        element: <Private_Route>
+                <AddEquipe></AddEquipe>,
+                </Private_Route>
       },
       {
-        path: "/myequipe/email/:email",
-        element: (
-          <Private_Route>
-            <MyEquipe></MyEquipe>
-          </Private_Route>
-        ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/equipement/email/${params.email}`, {
-            method: "GET", 
-            credentials: "include",
-          }),
+        path:"/myequipe/email/:email",
+        element: <Private_Route>
+          <MyEquipe></MyEquipe>
+        </Private_Route>,
       },
       {
-        path: `/updateEquipement/:id`,
-        element: (
-          <Private_Route>
-            <UpdateEquipement></UpdateEquipement>
-          </Private_Route>
-        ),
+        path:`/updateEquipement/:id`,
+        element: <Private_Route>
+          <UpdateEquipement></UpdateEquipement>
+        </Private_Route>
       },
       {
-        path: "/updateProfile",
-        element: (
-          <Private_Route>
-            <UpdateProfile></UpdateProfile>
-          </Private_Route>
-        ),
+        path:"/updateProfile",
+        element: <Private_Route>
+          <UpdateProfile></UpdateProfile>
+        </Private_Route>
       },
       {
-        path: `/Details/:id`,
-        element: (
-          <Private_Route>
-            <DetailsEquipe></DetailsEquipe>
-          </Private_Route>
-        ),
+        path:`/Details/:id`,
+        element: <Private_Route>
+          <DetailsEquipe></DetailsEquipe>
+        </Private_Route>
       },
-    ],
+    ]
   },
   {
-    path: "*",
-    element: (
-      <h1 className="text-3xl font-bold text-center m-28">Error 404 !</h1>
-    ),
-  },
+    path:"*",
+    element: <h1 className='text-3xl font-bold text-center m-28'>Error 404 !</h1>
+  }
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>

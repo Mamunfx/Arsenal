@@ -2,11 +2,13 @@ import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Tooltip as ReactTooltip, Tooltip } from 'react-tooltip'
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AllEquip = () => {
-  const loaderInfo = useLoaderData();
+  const axiosSecure = useAxiosSecure();
   const {user,notifyError,notify}=useContext(AuthContext);
-  const [equipes, setequipe] = useState(loaderInfo);
+  const [equipes, setequipe] = useState([]);
+  const loadedData =  axiosSecure.get("/allequipement").then((res) => res.data).then(data=>setequipe(data));
   
   const handleDelete = (equi) => {
     if (equi.userEmail === user?.email) {
@@ -60,7 +62,7 @@ const AllEquip = () => {
               </tr>
             </thead>
             <tbody>
-              {equipes?.map((equipe, idx) => (
+              {equipes.map((equipe, idx) => (
                 <tr key={idx}>
                   <th>{idx + 1}</th>
                   <td>{equipe.itemName}</td>

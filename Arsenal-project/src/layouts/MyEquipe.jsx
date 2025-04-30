@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const MyEquipe = () => {
-  const equipements = useLoaderData() || []; 
+  const axiosSecure = useAxiosSecure()
   const { user, notifyError } = useContext(AuthContext);
-  const [equipes, setequipe] = useState(equipements);
-
+  const [equipes, setequipe] = useState([]);
+  const fetchEquipements = axiosSecure.get(`/equipement/email/${user?.email}`).then((res) => res.data).then(data=>setequipe(data));
   const handleDelete = (equi) => {
     if (equi.userEmail !== user?.email) {
       notifyError('You cannot delete this equipment, Authorized first!');

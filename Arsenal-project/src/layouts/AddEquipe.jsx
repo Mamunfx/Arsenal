@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { AuthContext } from './../AuthProvider/AuthProvider';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const AddEquipe = () => {
-
-    const {user,notify}=useContext(AuthContext);
+    const axiosSecure = useAxiosSecure();
+    const {user,notify,notifyError}=useContext(AuthContext); 
 
     const handleAddEquipment = e => {
         e.preventDefault();
@@ -33,19 +34,10 @@ const AddEquipe = () => {
             userName 
         };
 
-
-        fetch('http://localhost:3000/equipement', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newEquipment)
-        })
-            .then(res => res.json())
-            .then(data => {
-                    notify('Successfully added');
-                    e.target.reset();
-            });
+        axiosSecure.post('/equipement',newEquipment)
+        .then(res=>{notify('Successfully added')})
+        .catch(error=>{notifyError("failed to add")})
+        e.target.reset();
     };
 
     return (
